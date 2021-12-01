@@ -12,7 +12,7 @@ import {
   StyleSheet,
   RefreshControl,
   ScrollView,
-  TextInput
+  TextInput,
 } from 'react-native';
 
 // const Greeting = ({name}) => {
