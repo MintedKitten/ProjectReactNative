@@ -1,9 +1,11 @@
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
+      <Ionicons name="home" size={50} color="skyblue" />
       <Text>Main page</Text>
       <Button
         title="Go to About Me"
