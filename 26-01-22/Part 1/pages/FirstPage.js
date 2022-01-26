@@ -1,7 +1,6 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, Text, View, SafeAreaView} from 'react-native';
 import React from 'react';
 import {styles} from '../components/styles';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
 const FirstPage = ({navigation}) => {
   return (
