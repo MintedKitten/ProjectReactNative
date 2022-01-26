@@ -86,9 +86,21 @@ function secondScreeenStack({navigation}) {
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="FirstPage" component={firstScreeenStack} />
-        <Drawer.Screen name="SecondPage" component={secondScreeenStack} />
+      <Drawer.Navigator
+        drawerContentOptions={{
+          activeTintColor: '#e91263',
+          itemStyle: {marginVertical: 5},
+        }}>
+        <Drawer.Screen
+          name="FirstPage"
+          component={firstScreeenStack}
+          options={{drawerLabel: 'First Page Option'}}
+        />
+        <Drawer.Screen
+          name="SecondPage"
+          component={secondScreeenStack}
+          options={{drawerLabel: 'Second Page Option'}}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
