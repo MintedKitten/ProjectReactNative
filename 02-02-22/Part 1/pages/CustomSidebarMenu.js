@@ -36,10 +36,10 @@ const CustomSidebarMenu = props => {
             onPress={() => {
               Linking.openURL('https://www.tni.ac.th');
             }}>
-            Rate Us 
+            Rate Us
           </Text>
           <Image
-            style={{width: 20, height: 20}}
+            style={{width: 15, height: 15, marginLeft: 5}}
             source={require('../assets/star_filled.png')}
           />
         </View>
