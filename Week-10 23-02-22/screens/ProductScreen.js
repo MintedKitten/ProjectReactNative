@@ -128,7 +128,6 @@ const ProductScreen = ({navigation}) => {
             <Left>
               <View>
                 <Thumbnail square source={{uri: item.picture}} />
-                <Text>hi</Text>
               </View>
             </Left>
             <Body>
