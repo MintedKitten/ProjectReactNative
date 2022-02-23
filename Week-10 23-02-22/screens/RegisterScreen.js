@@ -82,6 +82,7 @@ const RegisterScreen = () => {
                   value={values.email}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
+                  secureTextEntry={true}
                 />
               </Item>
               {errors.email && touched.email && (
