@@ -1,5 +1,5 @@
-import {StyleSheet, View, ScrollView} from 'react-native';
-import React, {useState, useEffect, useContext} from 'react';
+import { StyleSheet, View, ScrollView } from "react-native";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Container,
   Header,
@@ -12,17 +12,17 @@ import {
   Body,
   Right,
   Switch,
-} from 'native-base';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {userStoreContext} from '../context/UserContext';
+} from "native-base";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { userStoreContext } from "../context/UserContext";
 
-const MenuScreen = ({navigation}) => {
+const MenuScreen = ({ navigation }) => {
   // const [profile, setProfile] = useState(null);
   const userStore = useContext(userStoreContext);
 
   useEffect(() => {
     const getProfile = async () => {
-      const profile = await AsyncStorage.getItem('@profile');
+      const profile = await AsyncStorage.getItem("@profile");
       if (profile != null) {
         userStore.updateProfile(JSON.parse(profile));
         // setProfile(JSON.parse(profile));
@@ -32,21 +32,23 @@ const MenuScreen = ({navigation}) => {
   }, []);
 
   return (
-    <ScrollView style={{flex: 1}}>
+    <ScrollView style={{ flex: 1 }}>
       <View
         style={{
           flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: "center",
+          alignItems: "center",
           height: 100,
-        }}>
+        }}
+      >
         <Text
           style={{
-            color: 'blue',
+            color: "blue",
             fontSize: 20,
-            fontWeight: 'bold',
+            fontWeight: "bold",
             padding: 20,
-          }}>
+          }}
+        >
           Main Menu
         </Text>
         {/* Display Name after logged in */}
@@ -54,18 +56,20 @@ const MenuScreen = ({navigation}) => {
           <>
             <Text
               style={{
-                color: 'blue',
+                color: "blue",
                 fontSize: 20,
-                fontWeight: 'bold',
-              }}>
+                fontWeight: "bold",
+              }}
+            >
               Welcome {userStore.profile.name}!
             </Text>
             <Text
               style={{
-                color: 'blue',
+                color: "blue",
                 fontSize: 10,
-                fontWeight: 'bold',
-              }}>
+                fontWeight: "bold",
+              }}
+            >
               {userStore.profile.email}
             </Text>
           </>
@@ -79,12 +83,13 @@ const MenuScreen = ({navigation}) => {
           {/* Home Page */}
           <ListItem
             icon
-            style={{marginBottom: 10, marginTop: 10}}
+            style={{ marginBottom: 10, marginTop: 10 }}
             onPress={() => {
-              navigation.navigate('HomeStack');
-            }}>
+              navigation.navigate("HomeStack");
+            }}
+          >
             <Left>
-              <Button style={{backgroundColor: '#FF9501'}}>
+              <Button style={{ backgroundColor: "#FF9501" }}>
                 <Icon active name="home" />
               </Button>
             </Left>
@@ -98,12 +103,13 @@ const MenuScreen = ({navigation}) => {
           {/* Product Page */}
           <ListItem
             icon
-            style={{marginBottom: 10}}
+            style={{ marginBottom: 10 }}
             onPress={() => {
-              navigation.navigate('ProductStack');
-            }}>
+              navigation.navigate("ProductStack");
+            }}
+          >
             <Left>
-              <Button style={{backgroundColor: '#007AFF'}}>
+              <Button style={{ backgroundColor: "#007AFF" }}>
                 <Icon active name="archive-outline" />
               </Button>
             </Left>
@@ -118,12 +124,13 @@ const MenuScreen = ({navigation}) => {
           {!userStore.profile && (
             <ListItem
               icon
-              style={{marginBottom: 10}}
+              style={{ marginBottom: 10 }}
               onPress={() => {
-                navigation.navigate('HomeStack', {screen: 'Login'});
-              }}>
+                navigation.navigate("HomeStack", { screen: "Login" });
+              }}
+            >
               <Left>
-                <Button style={{backgroundColor: '#FFD365'}}>
+                <Button style={{ backgroundColor: "#FFD365" }}>
                   <Icon active name="log-in" />
                 </Button>
               </Left>
@@ -139,15 +146,17 @@ const MenuScreen = ({navigation}) => {
           {userStore.profile && (
             <ListItem
               icon
-              style={{marginBottom: 10}}
+              style={{ marginBottom: 10 }}
               onPress={async () => {
-                await AsyncStorage.removeItem('@token');
-                await AsyncStorage.removeItem('@profile');
+                await AsyncStorage.removeItem("@token");
+                await AsyncStorage.removeItem("@profile");
                 userStore.updateProfile(null);
                 navigation.closeDrawer();
-              }}>
+                alert("Logout Successfully");
+              }}
+            >
               <Left>
-                <Button style={{backgroundColor: '#D82148'}}>
+                <Button style={{ backgroundColor: "#D82148" }}>
                   <Icon active name="log-out" />
                 </Button>
               </Left>
