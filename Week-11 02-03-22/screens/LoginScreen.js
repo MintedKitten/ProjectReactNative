@@ -30,7 +30,6 @@ const LoginScreen = ({navigation}) => {
         <Formik
           // the value name and startnig value
           initialValues={{
-            name: '',
             email: '',
             password: '',
           }}
